@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: rgb(50, 50, 50);
+        }
+
+        div {
+            font-size: 300%;
+        }
+    </style>
+</head>
+
+<body>
+    <label for="showAge">Hvor gammel du er:</label>
+    <div id="showage"></div>
+    <label for="myInput">Skriv inn året du er født:</label> <br>
+    <input type="number" id="myInput" onchange="getInputValue()" />
+
+    <script>
+        let myAge = 0;
+        let inputValue = 0;
+        showAge();
+
+        function getInputValue() {
+            inputValue = document.getElementById('myInput').valueAsNumber;
+            myAge = getAge(inputValue);
+            showAge();
+        }
+
+        function showAge() {
+            document.getElementById('showage').innerHTML = myAge;
+            console.log(inputValue);
+        }
+
+        function getAge(yearOfBirth) {
+            //innebygd javascript funksjon som henter datens dato
+            let todaysDate = new Date();
+
+            //henter ut årstall fra dagens dato
+            let year = todaysDate.getFullYear();
+
+            let age = year - yearOfBirth;
+            return age;
+        }
+
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Returnverdi Video</title>
+    <style>
+        body {
+            background-color: rgb(60, 60, 60);
+            border: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="mainDiv"></div>
+
+
+
+    <button onclick="createAndShowHtml('green','Hallo verden', 30, 'yellow', '1', 'solid','gray')">Test 1</button>
+    <button onclick="createAndShowHtml('gray','Hei på deg!', 20, 'green', '2', 'dashed','yellow')">Test 2</button>
+    <button onclick="createAndShowHtml('yellow','GET Academy', 10, 'gray', '3', 'solid','green')">Test 3</button>
+
+    <script>
+        createAndShowHtml('green', 'Hallo verden', 30, 'yellow', '1', 'solid', 'gray');
+
+        function createAndShowHtml(backgroundcolor, text, fontsize, textcolor, borderSize, borderType, borderColor) {
+            document.getElementById('mainDiv').innerHTML = /*HTML*/ `
+    <div ${createStyle(backgroundcolor, fontsize, textcolor, borderSize, borderType, borderColor)}>${text}</div>
+    `
+        }
+
+
+        function createStyle(backgroundcolor, fontsize, textcolor, borderSize, borderType, borderColor) {
+            return `style="${createBackgroundColor(backgroundcolor)} ${createFontSize(fontsize)} 
+            ${createTextColor(textcolor)} ${createBorder(borderSize, borderType, borderColor)}"`;
+        }
+
+        function createTextColor(textcolor) {
+            return `color: ${textcolor};`;
+        }
+
+        function createBorder(borderSize, borderType, borderColor) {
+            return `border: ${borderSize}px ${borderType} ${borderColor} ;`;
+        }
+
+        function createBackgroundColor(backgroundcolor) {
+            return `background-color:${backgroundcolor};`;
+        }
+
+        function createFontSize(fontsize) {
+            return `font-size: ${fontsize}px;`;
+        }
+
+
+
+    </script>
+
+
+
+</body>
+
+</html>
